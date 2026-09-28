@@ -1,0 +1,22 @@
+=== vulkan_learn / hello_window ===
+日志同时写到 stdout 和 hello_window.log
+
+[vk] 发现 2 张 GPU:
+       [0] NVIDIA GeForce RTX 4060 Laptop GPU  (type=2, api 1.4.329)
+       [1] Intel(R) Arc(TM) Graphics  (type=1, api 1.4.325)
+[vk] 选中 queue family 0（graphics + present 同族）
+[vk] device ready: NVIDIA GeForce RTX 4060 Laptop GPU
+[vk] swapchain: 3 张 image, 1280x720, format=50, presentMode=FIFO
+     （minImageCount=2, 我申请了 3 —— 多要一张是为了不 stall）
+[vk] init 完成。timestampPeriod = 1.00 ns
+
+[viz] 开始帧循环。ESC 退出，拖窗口边缘试试 resize。
+[vk] swapchain: 3 张 image, 1280x720, format=50, presentMode=FIFO
+     （minImageCount=2, 我申请了 3 —— 多要一张是为了不 stall）
+
+=========== 崩溃 ===========
+异常码 0xC0000005  (访问违例 / ACCESS_VIOLATION)
+  操作: 执行  地址: 0000000000000000
+  指令地址: 0000000000000000
+  日志里本方块的**上一行**就是崩之前执行到的位置。
+调用栈（越靠上越接近崩溃点）:
